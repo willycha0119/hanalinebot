@@ -1,0 +1,14 @@
+ID: hanalinebot
+_schema-version: '2.0'
+version: 0.0.1
+
+modules:
+ - name: hanalinebot
+   type: java
+   path: hanalinebot
+   parameters:
+      memory: 512M
+   provides:
+    - name: hanalinebot_api
+      properties:
+         url: ${default-url}
