@@ -27,7 +27,7 @@ public class DruidManager {
 		dataSource.setDriverClassName("com.sap.db.jdbc.Driver");
 		dataSource.setUsername("SYSTEM");
 		dataSource.setPassword("9Fy83kx4");
-		dataSource.setUrl("jdbc:sap://35.229.155.64:39013?databaseName=SYSTEMDB&currentschema=LINEBOT&reconnect=true");
+		dataSource.setUrl("jdbc:sap://localhost:39013?databaseName=SYSTEMDB&currentschema=LINEBOT&reconnect=true");
 		dataSource.setMaxWait(3000);
 		dataSource.setInitialSize(0);
 		dataSource.setMaxIdle(30);
