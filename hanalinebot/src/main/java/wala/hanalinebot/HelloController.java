@@ -1,11 +1,16 @@
 package wala.hanalinebot;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.wala.db.cus.mapper.DBAccess;
 
 /* Remove comment if Hana database support is enabled.
 import java.sql.Connection;
@@ -28,24 +33,9 @@ public class HelloController {
     StringBuilder builder = new StringBuilder();
     builder.append("Hello World !!");
 
-    /* Remove comment if Hana database support is enabled.
-    builder.append("\n\nJDBC connection available: ");
-    try {
-      Connection conn = getConnection();
-      if (conn != null) {
-        builder.append("yes");
-        builder.append("\n\nCurrent Hana DB user:\n");
-        String userName = getCurrentUser(conn);
-        builder.append(userName);
-        builder.append("\n\nCurrent Hana schema:\n");
-        builder.append(getCurrentSchema(conn));
-      } else {
-        builder.append("no");
-      }
-    } catch (SQLException e) {
-      builder.append("no");
-    }
-    */
+    DBAccess objDB = new DBAccess();
+    List<Map<String, Object>> list = objDB.selectQuery("select * from GREED");
+    builder.append(list);
 
     return builder.toString();
   }
